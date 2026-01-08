@@ -4,16 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>منصة مستر عمر الحوت | التعليمية</title>
-    <meta name="description" content="منصة مستر عمر الحوت التعليمية للمرحلة الإعدادية. شروحات، اختبارات تفاعلية، ملفات PDF، ومتابعة مستمرة للطلاب.">
-    <meta name="keywords" content="مستر عمر الحوت, علوم, منصة تعليمية, الصف الأول الإعدادي, الصف الثاني الإعدادي, الصف الثالث الإعدادي, امتحانات اونلاين">
-    <meta name="author" content="Mr. Omar El Hout">
+    <title>منصة مستر عمرو الحوت | للعلوم والفيزياء</title>
+    <meta name="description" content="منصة مستر عمرو الحوت التعليمية - أفضل شروحات العلوم والمرحلة الإعدادية، اختبارات تفاعلية ومتابعة دورية.">
+    <meta name="keywords" content="مستر عمرو الحوت, عمرو الحوت, علوم, منصة تعليمية, شرح علوم, امتحانات الكترونية">
+    <meta name="author" content="Mr. Amr El Hout">
     <meta name="robots" content="index, follow">
-    
-    <meta property="og:title" content="منصة مستر عمر الحوت">
-    <meta property="og:description" content="سجل الآن في أقوى منصة تعليمية للمرحلة الإعدادية.">
-    <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/3426/3426653.png">
-    <meta property="og:url" content="https://y73922866-design.github.io/4353/">
     
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3426/3426653.png">
 
@@ -24,8 +19,8 @@
         :root {
             --primary: #00f3ff;
             --secondary: #bc13fe;
-            --bg-dark: #050505;
-            --panel: rgba(20, 20, 25, 0.85);
+            --bg-dark: #08080c;
+            --panel: rgba(25, 25, 35, 0.9);
             --text: #fff;
             --danger: #ff0055;
             --success: #00ff88;
@@ -33,250 +28,152 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; -webkit-tap-highlight-color: transparent; }
         
-        /* --- خلفية متحركة جذابة --- */
+        /* --- خلفية جذابة ومتحركة --- */
         body {
             background-color: var(--bg-dark);
             color: var(--text);
             overflow-x: hidden;
             min-height: 100vh;
             padding-bottom: 70px;
-            position: relative;
+            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #08080c 100%);
         }
 
-        /* تأثير الخلفية النيون المتحركة */
         body::before {
             content: '';
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: -10%; left: -10%; width: 120%; height: 120%;
             background: 
-                radial-gradient(circle at 15% 50%, rgba(188, 19, 254, 0.08), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(0, 243, 255, 0.08), transparent 25%);
-            z-index: -2;
-            animation: bgPulse 10s ease-in-out infinite alternate;
-        }
-        
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
+                radial-gradient(circle at 20% 30%, rgba(0, 243, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(188, 19, 254, 0.05) 0%, transparent 40%);
             z-index: -1;
-            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            animation: bgMove 15s ease-in-out infinite alternate;
         }
 
-        @keyframes bgPulse {
-            0% { transform: scale(1); opacity: 0.5; }
-            100% { transform: scale(1.1); opacity: 1; }
+        @keyframes bgMove {
+            0% { transform: translate(0,0); }
+            100% { transform: translate(2%, 2%); }
         }
 
         /* --- UI Elements --- */
-        .neon-text { text-shadow: 0 0 10px rgba(0, 243, 255, 0.5); }
+        .neon-text { text-shadow: 0 0 10px rgba(0, 243, 255, 0.6); color: var(--primary); }
         .neon-box { 
-            box-shadow: 0 0 15px rgba(188, 19, 254, 0.3), inset 0 0 20px rgba(188, 19, 254, 0.1); 
-            border: 1px solid rgba(188, 19, 254, 0.5); 
-            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.1); 
+            border: 1px solid rgba(0, 243, 255, 0.2); 
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
         }
         
         .btn-neon {
-            background: linear-gradient(45deg, transparent 50%, rgba(0, 243, 255, 0.1) 100%);
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 10px 20px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            border-radius: 8px;
-            text-align: center;
-            display: inline-block;
-            font-size: 1rem;
-            box-shadow: 0 0 5px rgba(0, 243, 255, 0.2);
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border: none; color: #000;
+            padding: 12px 25px; font-weight: 900;
+            cursor: pointer; transition: 0.3s;
+            border-radius: 12px; text-align: center;
+            display: inline-block; font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 243, 255, 0.3);
         }
-        .btn-neon:hover {
-            background: var(--primary);
-            color: #000;
-            box-shadow: 0 0 20px var(--primary);
-        }
-        .btn-neon:active { transform: scale(0.95); }
+        .btn-neon:hover { transform: translateY(-3px); box-shadow: 0 8px 25px var(--primary); opacity: 0.9; }
         
         /* --- Layout --- */
-        .container { max-width: 1000px; margin: 0 auto; padding: 15px; position: relative; z-index: 1; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 15px; }
 
         /* --- Auth Screen --- */
         #auth-screen {
             display: flex; justify-content: center; align-items: center; min-height: 100vh;
+            padding: 20px; position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;
             background: #000;
-            padding: 20px;
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;
         }
-        /* إضافة خلفية متحركة لشاشة الدخول */
-        #auth-screen::before {
-            content: ''; position: absolute; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, #1a0b2e 0%, #000000 100%);
-            opacity: 0.8; z-index: -1;
-        }
-
         .auth-box {
-            background: rgba(10, 10, 10, 0.8); padding: 40px 25px; border-radius: 20px;
-            width: 100%; max-width: 400px; text-align: center;
-            border: 1px solid rgba(0, 243, 255, 0.3);
+            background: var(--panel); padding: 40px 25px; width: 100%; max-width: 400px; text-align: center;
         }
         input, select, textarea {
             width: 100%; padding: 14px; margin: 8px 0;
-            background: rgba(255, 255, 255, 0.05); border: 1px solid #333; color: #fff;
-            border-radius: 8px; outline: none; font-size: 16px; transition: 0.3s;
+            background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255,255,255,0.1); color: #fff;
+            border-radius: 10px; outline: none; font-size: 16px;
         }
-        input:focus { border-color: var(--primary); background: rgba(0, 243, 255, 0.05); }
+        input:focus { border-color: var(--primary); box-shadow: 0 0 10px rgba(0,243,255,0.2); }
 
-        /* --- Header & Nav --- */
+        /* --- Header --- */
         header {
-            background: rgba(5, 5, 5, 0.8); padding: 10px 0;
-            border-bottom: 1px solid rgba(0, 243, 255, 0.2); position: sticky; top: 0; z-index: 100;
-            backdrop-filter: blur(20px);
+            background: rgba(8, 8, 12, 0.9); padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); position: sticky; top: 0; z-index: 100;
+            backdrop-filter: blur(10px);
         }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
         
-        /* Navigation Bar (Desktop Default) */
-        nav { display: flex; gap: 5px; }
         nav button {
-            background: none; border: none; color: #aaa; font-size: 1rem;
-            padding: 5px 15px; cursor: pointer; transition: 0.3s;
-            border-radius: 20px;
+            background: none; border: none; color: #ccc; font-size: 1rem;
+            padding: 8px 18px; cursor: pointer; transition: 0.3s; border-radius: 20px;
         }
-        nav button:hover { color: #fff; background: rgba(255,255,255,0.05); }
-        nav button.active { color: #000; background: var(--primary); font-weight: bold; box-shadow: 0 0 10px var(--primary); }
-        nav button i { display: none; } 
-
-        /* --- Mobile Navigation --- */
-        @media (max-width: 768px) {
-            header { padding: 10px 15px; }
-            header nav { display: none; }
-            
-            .mobile-nav {
-                display: flex !important;
-                position: fixed; bottom: 0; left: 0; width: 100%;
-                background: rgba(10, 10, 10, 0.95); border-top: 1px solid #333;
-                justify-content: space-around; padding: 10px 0;
-                z-index: 1000; backdrop-filter: blur(10px);
-            }
-            .mobile-nav button {
-                background: none; border: none; color: #666;
-                display: flex; flex-direction: column; align-items: center;
-                font-size: 0.75rem; gap: 5px; width: 20%;
-            }
-            .mobile-nav button i { display: block; font-size: 1.3rem; margin-bottom: 3px; transition: 0.3s; }
-            .mobile-nav button.active { color: var(--primary); }
-            .mobile-nav button.active i { transform: translateY(-3px); text-shadow: 0 0 10px var(--primary); }
-            
-            .chat-container { flex-direction: column; height: auto; }
-            .users-list { width: 100%; max-height: 150px; margin-bottom: 10px; }
-            .chat-box { width: 100%; height: 60vh; }
-        }
-        
-        .mobile-nav { display: none; }
+        nav button.active { color: #fff; background: rgba(0, 243, 255, 0.2); border: 1px solid var(--primary); }
 
         /* --- Cards --- */
         .card {
             background: var(--panel); padding: 20px; margin-bottom: 20px;
-            border-radius: 16px; border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-radius: 18px; border: 1px solid rgba(255,255,255,0.05);
             transition: 0.3s;
         }
-        .card:hover { transform: translateY(-2px); border-color: rgba(0, 243, 255, 0.3); }
-        
-        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .author-box { display: flex; align-items: center; gap: 10px; }
-        .author-name { font-weight: bold; color: var(--primary); }
-        .grade-badge { background: rgba(188, 19, 254, 0.2); color: var(--secondary); padding: 2px 10px; border-radius: 10px; font-size: 0.8rem; border: 1px solid rgba(188, 19, 254, 0.4); }
-
-        .admin-panel {
-            background: rgba(255, 80, 80, 0.05); padding: 15px; border: 1px dashed var(--danger);
-            margin-bottom: 20px; border-radius: 10px;
-        }
-
-        /* --- Quizzes --- */
-        .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        @media (max-width: 600px) { .quiz-options { grid-template-columns: 1fr; } }
-        
-        .quiz-option {
-            background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; border: 1px solid #333;
-            cursor: pointer; text-align: center; transition: 0.2s;
-        }
-        .quiz-option:hover { background: rgba(255,255,255,0.1); }
-        .quiz-option.correct { background: rgba(0, 255, 136, 0.2); border-color: var(--success); color: var(--success); }
-        .quiz-option.wrong { background: rgba(255, 0, 85, 0.2); border-color: var(--danger); color: var(--danger); }
+        .card:hover { border-color: var(--primary); }
 
         /* --- Chat --- */
         .chat-container { display: flex; height: 70vh; gap: 15px; }
-        .users-list { 
-            width: 30%; background: rgba(0,0,0,0.3); border: 1px solid #333; 
-            overflow-y: auto; border-radius: 12px;
-        }
-        .user-item { padding: 12px; border-bottom: 1px solid #222; cursor: pointer; display: flex; align-items: center; transition: 0.2s; }
-        .user-item:hover { background: rgba(255,255,255,0.05); }
-        
-        .chat-box { 
-            width: 70%; display: flex; flex-direction: column; 
-            background: rgba(0,0,0,0.3); border: 1px solid #333; border-radius: 12px;
-            overflow: hidden;
-        }
-        .messages-area { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-        .message-row { display: flex; align-items: flex-end; margin-bottom: 5px; }
-        .message-content { padding: 10px 15px; border-radius: 15px; max-width: 85%; word-wrap: break-word; font-size: 0.95rem; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .row-sent { flex-direction: row-reverse; }
-        .row-sent .message-content { background: linear-gradient(135deg, var(--secondary), #8a0bbd); color: #fff; border-bottom-left-radius: 15px; border-bottom-right-radius: 0; }
-        .row-received { flex-direction: row; }
-        .row-received .message-content { background: #333; border-bottom-left-radius: 0; border-bottom-right-radius: 15px; }
-        .chat-input { padding: 15px; background: rgba(0,0,0,0.5); display: flex; gap: 10px; align-items: center; border-top: 1px solid #333; }
+        .users-list { width: 30%; background: rgba(0,0,0,0.3); overflow-y: auto; border-radius: 15px; border: 1px solid #222; }
+        .user-item { padding: 15px; border-bottom: 1px solid #222; cursor: pointer; display: flex; align-items: center; }
+        .chat-box { width: 70%; display: flex; flex-direction: column; background: rgba(0,0,0,0.3); border-radius: 15px; border: 1px solid #222; overflow: hidden; }
+        .messages-area { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+        .message-content { padding: 12px 18px; border-radius: 18px; max-width: 80%; line-height: 1.5; }
+        .row-sent { align-self: flex-end; background: var(--secondary); color: white; border-bottom-right-radius: 2px; }
+        .row-received { align-self: flex-start; background: #333; color: white; border-bottom-left-radius: 2px; }
 
-        /* --- Avatars --- */
-        .avatar-small { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); box-shadow: 0 0 5px var(--primary); }
-        .avatar-large { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--secondary); display: block; margin: 0 auto 15px auto; box-shadow: 0 0 15px var(--secondary); }
+        /* --- Mobile Nav --- */
+        @media (max-width: 768px) {
+            header nav { display: none; }
+            .mobile-nav {
+                display: flex !important; position: fixed; bottom: 0; left: 0; width: 100%;
+                background: #08080c; border-top: 1px solid #222; justify-content: space-around;
+                padding: 12px 0; z-index: 1000;
+            }
+            .mobile-nav button { background: none; border: none; color: #666; font-size: 0.7rem; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+            .mobile-nav button i { font-size: 1.2rem; }
+            .mobile-nav button.active { color: var(--primary); }
+            .chat-container { flex-direction: column; }
+            .users-list { width: 100%; max-height: 120px; }
+            .chat-box { width: 100%; height: 60vh; }
+        }
+        .mobile-nav { display: none; }
 
-        /* --- Utilities --- */
-        .section { display: none; animation: fadeIn 0.4s; }
+        .section { display: none; animation: slideUp 0.4s ease-out; }
         .section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
         
-        .toast {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            background: #222; color: var(--success); padding: 10px 25px; border-radius: 30px; border: 1px solid var(--success);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5); display: none; z-index: 3000; font-weight: bold;
-        }
+        .avatar-small { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--primary); }
     </style>
 </head>
 <body>
 
-    <div id="toast" class="toast">تم التنفيذ</div>
-
     <div id="auth-screen">
         <div class="auth-box neon-box">
-            <h1 class="neon-text" style="margin-bottom: 20px; font-size: 1.8rem;">مستر عمر الحوت</h1>
+            <h1 class="neon-text" style="margin-bottom: 10px;">مستر عمرو الحوت</h1>
+            <p style="color: #888; margin-bottom: 25px;">مرحباً بك في منصتك التعليمية</p>
             
             <div id="login-form">
-                <input type="text" id="login-username" placeholder="اسم المستخدم (مثال: omar)">
+                <input type="text" id="login-username" placeholder="اسم المستخدم">
                 <input type="password" id="login-password" placeholder="كلمة المرور">
-                <button class="btn-neon" style="width:100%; margin-top:15px;" onclick="login()">دخول</button>
-                <p style="margin-top: 20px; font-size:0.9rem;">ليس لديك حساب؟ <a href="#" style="color:var(--primary); text-decoration:none;" onclick="toggleAuth('signup')">إنشاء حساب</a></p>
+                <button class="btn-neon" style="width:100%; margin-top:15px;" onclick="login()">دخول للمنصة</button>
+                <p style="margin-top: 20px; font-size:0.9rem;">جديد هنا؟ <a href="#" style="color:var(--primary);" onclick="toggleAuth('signup')">أنشئ حسابك الآن</a></p>
             </div>
 
             <div id="signup-form" style="display: none;">
-                <div style="background: rgba(255,0,0,0.1); padding:10px; border-radius:5px; font-size:0.8rem; color:#ffaaaa; margin-bottom:10px; border: 1px solid rgba(255,0,0,0.3);">
-                    <i class="fas fa-info-circle"></i> الاسم: إنجليزي فقط (بدون مسافات).
-                </div>
-                <input type="text" id="signup-username" placeholder="اسم المستخدم (English)">
+                <input type="text" id="signup-username" placeholder="اسم المستخدم (إنجليزي فقط)">
                 <input type="password" id="signup-password" placeholder="كلمة المرور">
                 <select id="signup-grade">
-                    <option value="" disabled selected>اختر الصف الدراسي</option>
-                    <option value="1">الأول الإعدادي</option>
-                    <option value="2">الثاني الإعدادي</option>
-                    <option value="3">الثالث الإعدادي</option>
+                    <option value="" disabled selected>اختر صفك الدراسي</option>
+                    <option value="1">الصف الأول الإعدادي</option>
+                    <option value="2">الصف الثاني الإعدادي</option>
+                    <option value="3">الصف الثالث الإعدادي</option>
                 </select>
-                <input type="text" id="signup-photo" placeholder="رابط صورة (اختياري)">
-                <button class="btn-neon" style="width:100%; margin-top:15px;" onclick="signup()">تسجيل جديد</button>
-                <p style="margin-top: 20px; font-size:0.9rem;">لديك حساب؟ <a href="#" style="color:var(--primary); text-decoration:none;" onclick="toggleAuth('login')">دخول</a></p>
+                <button class="btn-neon" style="width:100%; margin-top:15px;" onclick="signup()">تسجيل الحساب</button>
+                <p style="margin-top: 20px; font-size:0.9rem;">لديك حساب؟ <a href="#" style="color:var(--primary);" onclick="toggleAuth('login')">تسجيل دخول</a></p>
             </div>
         </div>
     </div>
@@ -284,81 +181,64 @@
     <div id="main-app" style="display: none;">
         <header>
             <div class="container nav-content">
-                <div style="display:flex; align-items:center; gap: 10px;">
-                    <img id="header-avatar" src="" class="avatar-small" style="border:none;">
-                    <div>
-                        <div class="neon-text" style="font-weight: bold; font-size:1.1rem; color:#fff;">MR. OMAR</div>
-                    </div>
+                <div style="display:flex; align-items:center; gap: 12px;">
+                    <img id="header-avatar" src="" class="avatar-small">
+                    <span class="neon-text" style="font-weight: 900; letter-spacing: 1px;">AMR EL HOUT</span>
                 </div>
-                
                 <nav>
-                    <button onclick="showSection('posts')" class="active" id="d-nav-posts">المنشورات</button>
+                    <button onclick="showSection('posts')" class="active" id="d-nav-posts">الرئيسية</button>
                     <button onclick="showSection('quizzes')" id="d-nav-quizzes">الاختبارات</button>
-                    <button onclick="showSection('files')" id="d-nav-files">الملفات</button>
+                    <button onclick="showSection('files')" id="d-nav-files">المكتبة</button>
                     <button onclick="showSection('chat')" id="d-nav-chat">المحادثة</button>
-                    <button onclick="showSection('profile')" id="d-nav-profile">حسابي</button>
-                    <button onclick="logout()" style="color:var(--danger); margin-right:5px; font-size: 1.2rem;"><i class="fas fa-sign-out-alt"></i></button>
+                    <button onclick="logout()" style="color:var(--danger);"><i class="fas fa-power-off"></i></button>
                 </nav>
             </div>
         </header>
 
-        <div class="container" style="padding-top: 20px;">
+        <div class="container" style="margin-top: 20px;">
             <div id="section-posts" class="section active">
-                <div id="admin-post-controls" class="admin-panel" style="display: none;">
-                    <h3 style="color:var(--primary); margin-bottom:10px;"><i class="fas fa-edit"></i> نشر بوست</h3>
-                    <textarea id="post-content" placeholder="اكتب شيئاً للطلاب..." style="height:100px; resize:none;"></textarea>
+                <div id="admin-post-controls" class="card" style="display: none; border: 1px dashed var(--primary);">
+                    <h3 style="margin-bottom:15px; color:var(--primary);">إضافة منشور جديد</h3>
+                    <textarea id="post-content" placeholder="ماذا تريد أن تقول لطلابك يا مستر عمرو؟" style="height:100px;"></textarea>
                     <div style="display:flex; gap:10px; margin-top:10px;">
-                        <select id="post-grade" style="margin:0;">
+                        <select id="post-grade" style="margin:0; width:120px;">
                             <option value="all">الكل</option>
                             <option value="1">1ع</option>
                             <option value="2">2ع</option>
                             <option value="3">3ع</option>
                         </select>
-                        <button class="btn-neon" onclick="createPost()">نشر</button>
+                        <button class="btn-neon" onclick="createPost()">نشر الآن</button>
                     </div>
                 </div>
                 <div id="posts-feed"></div>
             </div>
 
             <div id="section-quizzes" class="section">
-                <div id="admin-quiz-controls" class="admin-panel" style="display: none;">
-                    <h3 style="color:var(--primary); margin-bottom:10px;"><i class="fas fa-plus-circle"></i> إضافة سؤال</h3>
+                <div id="admin-quiz-controls" class="card" style="display: none; border: 1px dashed var(--primary);">
+                    <h3 style="margin-bottom:15px;">إضافة سؤال جديد</h3>
                     <input type="text" id="quiz-question" placeholder="نص السؤال">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                        <input type="text" id="quiz-op1" placeholder="الاختيار أ">
-                        <input type="text" id="quiz-op2" placeholder="الاختيار ب">
-                        <input type="text" id="quiz-op3" placeholder="الاختيار ج">
-                        <input type="text" id="quiz-op4" placeholder="الاختيار د">
+                        <input type="text" id="quiz-op1" placeholder="أ">
+                        <input type="text" id="quiz-op2" placeholder="ب">
+                        <input type="text" id="quiz-op3" placeholder="ج">
+                        <input type="text" id="quiz-op4" placeholder="د">
                     </div>
-                    <div style="display:flex; gap:10px; margin-top:10px;">
-                        <select id="quiz-correct" style="margin:0;">
-                            <option value="0">الإجابة الصحيحة: أ</option>
-                            <option value="1">الإجابة الصحيحة: ب</option>
-                            <option value="2">الإجابة الصحيحة: ج</option>
-                            <option value="3">الإجابة الصحيحة: د</option>
-                        </select>
-                        <select id="quiz-grade-select" style="margin:0;">
-                            <option value="1">1ع</option>
-                            <option value="2">2ع</option>
-                            <option value="3">3ع</option>
-                        </select>
-                    </div>
-                    <button type="button" class="btn-neon" style="width:100%; margin-top:15px;" onclick="addQuiz()">حفظ السؤال</button>
+                    <select id="quiz-correct">
+                        <option value="0">الإجابة الصحيحة هي (أ)</option>
+                        <option value="1">الإجابة الصحيحة هي (ب)</option>
+                        <option value="2">الإجابة الصحيحة هي (ج)</option>
+                        <option value="3">الإجابة الصحيحة هي (د)</option>
+                    </select>
+                    <button class="btn-neon" style="width:100%" onclick="addQuiz()">حفظ السؤال</button>
                 </div>
                 <div id="quizzes-feed"></div>
             </div>
 
             <div id="section-files" class="section">
-                <div id="admin-file-controls" class="admin-panel" style="display: none;">
-                    <h3 style="color:var(--primary); margin-bottom:10px;"><i class="fas fa-link"></i> رابط جديد</h3>
-                    <input type="text" id="file-title" placeholder="عنوان الملف (مثال: ملزمة المراجعة)">
-                    <input type="text" id="file-url" placeholder="الرابط (Drive, YouTube, etc)">
-                    <select id="file-grade-select">
-                        <option value="1">1ع</option>
-                        <option value="2">2ع</option>
-                        <option value="3">3ع</option>
-                    </select>
-                    <button class="btn-neon" style="width:100%" onclick="addFileLink()">إضافة</button>
+                <div id="admin-file-controls" class="card" style="display: none;">
+                    <input type="text" id="file-title" placeholder="اسم الملف/الفيديو">
+                    <input type="text" id="file-url" placeholder="رابط الملف">
+                    <button class="btn-neon" style="width:100%" onclick="addFileLink()">إضافة للمكتبة</button>
                 </div>
                 <div id="files-feed"></div>
             </div>
@@ -366,68 +246,39 @@
             <div id="section-chat" class="section">
                 <div class="chat-container">
                     <div id="chat-users-list" class="users-list" style="display: none;"></div>
-                    <div class="chat-box" id="main-chat-box">
-                        <div id="chat-header" style="padding:15px; border-bottom:1px solid #333; font-weight:bold; font-size:0.95rem; color:var(--primary); background:rgba(0,0,0,0.2);">اختر محادثة</div>
+                    <div class="chat-box">
+                        <div id="chat-header" style="padding:15px; background: rgba(255,255,255,0.05); border-bottom:1px solid #222;">اختر طالب لبدء الكلام</div>
                         <div id="messages-area" class="messages-area"></div>
-                        <div class="chat-input">
+                        <div style="padding:15px; display:flex; gap:10px; background:#111;">
                             <input type="text" id="msg-input" placeholder="اكتب رسالتك..." style="margin:0;">
-                            <button class="btn-neon" onclick="sendMessage()" style="padding: 10px 20px;"><i class="fas fa-paper-plane"></i></button>
+                            <button class="btn-neon" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div id="section-profile" class="section">
-                <div class="card" style="text-align: center; max-width: 500px; margin: 0 auto;">
-                    <img id="profile-img-preview" src="" class="avatar-large">
-                    <h2 id="p-name" style="color:var(--primary); margin-bottom:5px;"></h2>
-                    <p id="p-grade" style="color:#aaa; margin-bottom:25px;"></p>
-                    
-                    <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; text-align:right;">
-                        <label style="font-size:0.9rem; color:#ccc; margin-bottom:5px; display:block;">تغيير صورة البروفايل:</label>
-                        <div style="display:flex; gap:5px;">
-                            <input type="text" id="new-photo" placeholder="رابط الصورة الجديد" style="margin:0;">
-                            <button class="btn-neon" onclick="updateProfile()" style="white-space:nowrap;">حفظ</button>
-                        </div>
-                    </div>
-                    <button onclick="logout()" style="width:100%; margin-top:30px; background:rgba(255, 0, 85, 0.1); color:var(--danger); padding:12px; border:1px solid var(--danger); border-radius:8px; font-weight:bold; cursor:pointer;">تسجيل خروج</button>
                 </div>
             </div>
         </div>
 
         <div class="mobile-nav">
-            <button onclick="showSection('posts')" class="active" id="m-nav-posts">
-                <i class="fas fa-home"></i><span>الرئيسية</span>
-            </button>
-            <button onclick="showSection('quizzes')" id="m-nav-quizzes">
-                <i class="fas fa-graduation-cap"></i><span>اختبارات</span>
-            </button>
-            <button onclick="showSection('files')" id="m-nav-files">
-                <i class="fas fa-folder-open"></i><span>ملفات</span>
-            </button>
-            <button onclick="showSection('chat')" id="m-nav-chat">
-                <i class="fas fa-comments"></i><span>شات</span>
-            </button>
-            <button onclick="showSection('profile')" id="m-nav-profile">
-                <i class="fas fa-user"></i><span>حسابي</span>
-            </button>
+            <button onclick="showSection('posts')" class="active" id="m-nav-posts"><i class="fas fa-home"></i><span>الرئيسية</span></button>
+            <button onclick="showSection('quizzes')" id="m-nav-quizzes"><i class="fas fa-book-open"></i><span>اختبارات</span></button>
+            <button onclick="showSection('files')" id="m-nav-files"><i class="fas fa-download"></i><span>ملفات</span></button>
+            <button onclick="showSection('chat')" id="m-nav-chat"><i class="fas fa-comment"></i><span>شات</span></button>
         </div>
     </div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
-        import { getFirestore, collection, addDoc, query, where, orderBy, onSnapshot, doc, setDoc, getDoc, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        import { getFirestore, collection, addDoc, query, where, orderBy, onSnapshot, doc, setDoc, getDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-        // إعدادات فايربيس
+        // إعدادات فايربيس (Firebase)
         const firebaseConfig = {
             apiKey: "AIzaSyAbBh5BgsqQwGkNwQTv7MpHB5XmkiTSqOo",
             authDomain: "fhfh-9d485.firebaseapp.com",
             projectId: "fhfh-9d485",
             storageBucket: "fhfh-9d485.firebasestorage.app",
             messagingSenderId: "408121995262",
-            appId: "1:408121995262:web:e8b2a1ca25ea570a92daaf",
-            measurementId: "G-EDW3PJL4QL"
+            appId: "1:408121995262:web:e8b2a1ca25ea570a92daaf"
         };
 
         const app = initializeApp(firebaseConfig);
@@ -436,86 +287,70 @@
 
         let currentUser = null;
         let userData = null;
-        let selectedChatUser = null; 
-        const ADMIN_NAME = "OmarElHout"; 
-        const DEFAULT_IMG = "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+        let selectedChatUser = null;
+        const ADMIN_NAME = "AmrElHout"; // اسم الأدمن المعتمد
+        const DEFAULT_IMG = "https://cdn-icons-png.flaticon.com/512/3426/3426653.png";
 
-        // Helpers
-        window.toggleAuth = (mode) => {
-            document.getElementById('login-form').style.display = mode === 'login' ? 'block' : 'none';
-            document.getElementById('signup-form').style.display = mode === 'signup' ? 'block' : 'none';
+        window.toggleAuth = (m) => {
+            document.getElementById('login-form').style.display = m === 'login' ? 'block' : 'none';
+            document.getElementById('signup-form').style.display = m === 'signup' ? 'block' : 'none';
         };
 
-        window.showToast = (msg) => {
-            const t = document.getElementById('toast');
-            t.textContent = msg; t.style.display = 'block';
-            setTimeout(() => t.style.display = 'none', 3000);
-        };
-
-        window.showSection = (sec) => {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.getElementById('section-' + sec).classList.add('active');
-            
+        window.showSection = (s) => {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById('section-'+s).classList.add('active');
             document.querySelectorAll('nav button, .mobile-nav button').forEach(b => b.classList.remove('active'));
-            
-            const dBtn = document.getElementById('d-nav-' + sec);
-            const mBtn = document.getElementById('m-nav-' + sec);
-            if(dBtn) dBtn.classList.add('active');
-            if(mBtn) mBtn.classList.add('active');
-
-            if(sec === 'chat') loadChat();
-            window.scrollTo(0, 0); 
+            if(document.getElementById('d-nav-'+s)) document.getElementById('d-nav-'+s).classList.add('active');
+            if(document.getElementById('m-nav-'+s)) document.getElementById('m-nav-'+s).classList.add('active');
+            if(s === 'chat') loadChat();
         };
 
-        // Auth
         window.signup = async () => {
             const user = document.getElementById('signup-username').value.trim();
             const pass = document.getElementById('signup-password').value;
             const grade = document.getElementById('signup-grade').value;
-            let photo = document.getElementById('signup-photo').value.trim();
-            if(!photo) photo = DEFAULT_IMG;
-
-            if(!user || !pass || !grade) return alert("الرجاء إكمال جميع البيانات المطلوبة");
-
-            const validName = /^[a-zA-Z0-9]+$/;
-            if(!validName.test(user)) return alert("الاسم يجب أن يكون باللغة الإنجليزية فقط وبدون مسافات");
-
-            const email = user + "@mr-omar.com";
-
+            if(!user || pass.length < 6 || !grade) return alert("البيانات ناقصة أو كلمة المرور ضعيفة");
+            
             try {
-                const cred = await createUserWithEmailAndPassword(auth, email, pass);
+                const cred = await createUserWithEmailAndPassword(auth, user + "@amr-hout.com", pass);
                 await setDoc(doc(db, "users", cred.user.uid), {
                     username: user, grade: grade,
                     role: user === ADMIN_NAME ? "admin" : "student",
-                    photoURL: photo, uid: cred.user.uid
+                    photoURL: DEFAULT_IMG, uid: cred.user.uid
                 });
-                await updateProfile(cred.user, { displayName: user, photoURL: photo });
-                window.showToast("تم إنشاء الحساب بنجاح");
-            } catch(e) { 
-                if(e.code === 'auth/email-already-in-use') alert("هذا الاسم مستخدم من قبل، حاول إضافة رقم للاسم");
-                else alert("حدث خطأ: " + e.message); 
-            }
+                alert("تم التسجيل بنجاح!");
+            } catch(e) { alert("خطأ: " + e.message); }
         };
 
         window.login = async () => {
             const user = document.getElementById('login-username').value.trim();
             const pass = document.getElementById('login-password').value;
-            if(!user || !pass) return alert("أدخل اسم المستخدم وكلمة المرور");
             try {
-                await signInWithEmailAndPassword(auth, user + "@mr-omar.com", pass);
+                await signInWithEmailAndPassword(auth, user + "@amr-hout.com", pass);
             } catch(e) { alert("بيانات الدخول غير صحيحة"); }
         };
 
         window.logout = () => signOut(auth);
 
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                currentUser = user;
-                const snap = await getDoc(doc(db, "users", user.uid));
-                if(snap.exists()) {
-                    userData = snap.data();
-                    if(!userData.photoURL) userData.photoURL = DEFAULT_IMG;
-                    startApp();
+        onAuthStateChanged(auth, async (u) => {
+            if(u) {
+                const s = await getDoc(doc(db, "users", u.uid));
+                if(s.exists()){
+                    userData = s.data();
+                    currentUser = u;
+                    document.getElementById('auth-screen').style.display = 'none';
+                    document.getElementById('main-app').style.display = 'block';
+                    document.getElementById('header-avatar').src = userData.photoURL;
+                    
+                    const isAdmin = userData.role === 'admin';
+                    document.getElementById('admin-post-controls').style.display = isAdmin ? 'block' : 'none';
+                    document.getElementById('admin-quiz-controls').style.display = isAdmin ? 'block' : 'none';
+                    document.getElementById('admin-file-controls').style.display = isAdmin ? 'block' : 'none';
+                    document.getElementById('chat-users-list').style.display = isAdmin ? 'block' : 'none';
+
+                    loadPosts();
+                    loadQuizzes();
+                    loadFiles();
                 }
             } else {
                 document.getElementById('auth-screen').style.display = 'flex';
@@ -523,42 +358,16 @@
             }
         });
 
-        function startApp() {
-            document.getElementById('auth-screen').style.display = 'none';
-            document.getElementById('main-app').style.display = 'block';
-            
-            const safeImg = userData.photoURL || DEFAULT_IMG;
-            document.getElementById('header-avatar').src = safeImg;
-            document.getElementById('profile-img-preview').src = safeImg;
-            document.getElementById('p-name').textContent = userData.username;
-            document.getElementById('p-grade').textContent = userData.role === 'admin' ? 'مدير المنصة' : 'الصف ' + userData.grade;
-
-            const isAdmin = userData.role === 'admin';
-            document.getElementById('admin-post-controls').style.display = isAdmin ? 'block' : 'none';
-            document.getElementById('admin-file-controls').style.display = isAdmin ? 'block' : 'none';
-            document.getElementById('admin-quiz-controls').style.display = isAdmin ? 'block' : 'none';
-            document.getElementById('chat-users-list').style.display = isAdmin ? 'block' : 'none';
-            
-            if(!isAdmin) document.querySelector('.chat-box').style.width = '100%';
-
-            loadPosts();
-            loadFiles();
-            loadQuizzes();
-        }
-
-        // 1. Posts
+        // منشورات مستر عمرو
         window.createPost = async () => {
-            const txt = document.getElementById('post-content').value;
-            const grade = document.getElementById('post-grade').value;
-            if(!txt) return;
-            try {
-                await addDoc(collection(db, "posts"), {
-                    content: txt, grade: grade, author: "مستر عمر",
-                    authorPhoto: userData.photoURL || DEFAULT_IMG, timestamp: serverTimestamp()
-                });
-                document.getElementById('post-content').value = "";
-                window.showToast("تم نشر البوست");
-            } catch(e) { alert(e.message); }
+            const c = document.getElementById('post-content').value;
+            const g = document.getElementById('post-grade').value;
+            if(!c) return;
+            await addDoc(collection(db, "posts"), {
+                content: c, grade: g, author: "مستر عمرو الحوت",
+                timestamp: serverTimestamp()
+            });
+            document.getElementById('post-content').value = "";
         };
 
         function loadPosts() {
@@ -566,188 +375,110 @@
                 const div = document.getElementById('posts-feed');
                 div.innerHTML = "";
                 snap.forEach(d => {
-                    const data = d.data();
-                    if(userData.role === 'admin' || data.grade === 'all' || data.grade === userData.grade) {
-                        div.innerHTML += `
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="author-box">
-                                    <img src="${data.authorPhoto || DEFAULT_IMG}" class="avatar-small" style="margin-left:8px; margin-right:0;">
-                                    <span class="author-name">${data.author}</span>
-                                </div>
-                                <span class="grade-badge">${data.grade === 'all' ? 'عام' : data.grade}</span>
-                            </div>
-                            <div style="white-space: pre-wrap; font-size:1rem; padding: 5px; line-height: 1.6;">${data.content}</div>
+                    const p = d.data();
+                    if(userData.role === 'admin' || p.grade === 'all' || p.grade === userData.grade) {
+                        div.innerHTML += `<div class="card">
+                            <div style="color:var(--primary); font-weight:bold; margin-bottom:10px;">${p.author}</div>
+                            <div style="white-space:pre-wrap;">${p.content}</div>
                         </div>`;
                     }
                 });
             });
         }
 
-        // 2. Quizzes
+        // اختبارات
         window.addQuiz = async () => {
-            try {
-                const q = document.getElementById('quiz-question').value;
-                const ops = [
-                    document.getElementById('quiz-op1').value,
-                    document.getElementById('quiz-op2').value,
-                    document.getElementById('quiz-op3').value,
-                    document.getElementById('quiz-op4').value
-                ];
-                const correct = document.getElementById('quiz-correct').value;
-                const grade = document.getElementById('quiz-grade-select').value;
-
-                if(!q || ops.includes("")) return alert("يرجى إكمال جميع حقول السؤال");
-
-                await addDoc(collection(db, "quizzes"), {
-                    question: q, options: ops, correct: parseInt(correct), grade: grade, timestamp: serverTimestamp()
-                });
-                window.showToast("تم حفظ السؤال");
-                document.getElementById('quiz-question').value = "";
-                document.getElementById('quiz-op1').value = "";
-                document.getElementById('quiz-op2').value = "";
-                document.getElementById('quiz-op3').value = "";
-                document.getElementById('quiz-op4').value = "";
-            } catch(e) { alert(e.message); }
+            const q = document.getElementById('quiz-question').value;
+            const ops = [
+                document.getElementById('quiz-op1').value,
+                document.getElementById('quiz-op2').value,
+                document.getElementById('quiz-op3').value,
+                document.getElementById('quiz-op4').value
+            ];
+            const c = parseInt(document.getElementById('quiz-correct').value);
+            if(!q || ops.includes("")) return;
+            await addDoc(collection(db, "quizzes"), { question: q, options: ops, correct: c, grade: userData.grade, timestamp: serverTimestamp() });
+            alert("تمت إضافة السؤال");
         };
 
         function loadQuizzes() {
-            onSnapshot(query(collection(db, "quizzes"), orderBy("timestamp", "desc")), (snap) => {
+            onSnapshot(collection(db, "quizzes"), (snap) => {
                 const div = document.getElementById('quizzes-feed');
                 div.innerHTML = "";
                 snap.forEach(d => {
-                    const data = d.data();
-                    if(userData.role === 'admin' || data.grade === userData.grade) {
-                        let opsHtml = "";
-                        data.options.forEach((op, idx) => {
-                            opsHtml += `<div class="quiz-option" onclick="checkAnswer(this, ${idx}, ${data.correct})">${op}</div>`;
-                        });
-                        div.innerHTML += `
-                        <div class="card">
-                            <div class="card-header"><span>❓ سؤال تفاعلي</span> <span class="grade-badge">${data.grade}</span></div>
-                            <h3 style="margin-bottom:20px; color:#fff;">${data.question}</h3>
-                            <div class="quiz-options">${opsHtml}</div>
-                            <div class="quiz-feedback" style="margin-top:15px; font-weight:bold; display:none; text-align:center;"></div>
-                        </div>`;
-                    }
+                    const q = d.data();
+                    let ops = "";
+                    q.options.forEach((o, i) => {
+                        ops += `<button onclick="this.style.background='${i===q.correct?'green':'red'}'" style="width:100%; padding:10px; margin:5px 0; background:#222; color:#fff; border:1px solid #444; border-radius:8px;">${o}</button>`;
+                    });
+                    div.innerHTML += `<div class="card"><h3>${q.question}</h3>${ops}</div>`;
                 });
             });
         }
 
-        window.checkAnswer = (el, selected, correct) => {
-            const parent = el.parentElement;
-            if(parent.classList.contains('answered')) return;
-            parent.classList.add('answered');
-            const feedback = parent.parentElement.querySelector('.quiz-feedback');
-            feedback.style.display = 'block';
-            
-            if(selected === correct) {
-                el.classList.add('correct');
-                feedback.innerHTML = '<span style="color:var(--success); font-size:1.1rem;">إجابة صحيحة! أحسنت 🌟</span>';
-            } else {
-                el.classList.add('wrong');
-                parent.children[correct].classList.add('correct');
-                feedback.innerHTML = '<span style="color:var(--danger)">إجابة خاطئة، حظاً أوفر المرة القادمة</span>';
-            }
-        };
-
-        // 3. Files
+        // ملفات
         window.addFileLink = async () => {
-            const title = document.getElementById('file-title').value;
-            const url = document.getElementById('file-url').value;
-            const grade = document.getElementById('file-grade-select').value;
-            if(!title || !url) return;
-            await addDoc(collection(db, "files"), { title, url, grade, timestamp: serverTimestamp() });
-            window.showToast("تمت الإضافة");
-            document.getElementById('file-title').value = "";
-            document.getElementById('file-url').value = "";
+            const t = document.getElementById('file-title').value;
+            const u = document.getElementById('file-url').value;
+            if(!t || !u) return;
+            await addDoc(collection(db, "files"), { title: t, url: u, grade: userData.grade, timestamp: serverTimestamp() });
         };
 
         function loadFiles() {
-            onSnapshot(query(collection(db, "files"), orderBy("timestamp", "desc")), (snap) => {
+            onSnapshot(collection(db, "files"), (snap) => {
                 const div = document.getElementById('files-feed');
                 div.innerHTML = "";
                 snap.forEach(d => {
-                    const data = d.data();
-                    if(userData.role === 'admin' || data.grade === userData.grade) {
-                        div.innerHTML += `
-                        <div class="card" style="display:flex; justify-content:space-between; align-items:center;">
-                            <div style="display:flex; flex-direction:column; gap:5px;">
-                                <div style="font-weight:bold; font-size:1.1rem; color:var(--primary);"><i class="fas fa-file-alt" style="margin-left:5px;"></i> ${data.title}</div>
-                                <span class="grade-badge" style="width:fit-content;">${data.grade}</span>
-                            </div>
-                            <a href="${data.url}" target="_blank" class="btn-neon" style="padding:8px 20px; font-size:0.9rem; text-decoration:none;">فتح الرابط</a>
-                        </div>`;
-                    }
+                    const f = d.data();
+                    div.innerHTML += `<div class="card" style="display:flex; justify-content:space-between; align-items:center;">
+                        <span>${f.title}</span>
+                        <a href="${f.url}" target="_blank" class="btn-neon" style="padding:5px 15px;">تحميل</a>
+                    </div>`;
                 });
             });
         }
 
-        // 4. Chat
-        let chatUnsub = null;
+        // شات
         function loadChat() {
             if(userData.role === 'admin') {
                 onSnapshot(query(collection(db, "users"), where("role", "==", "student")), (snap) => {
-                    const list = document.getElementById('chat-users-list');
-                    list.innerHTML = "";
+                    const l = document.getElementById('chat-users-list');
+                    l.innerHTML = "";
                     snap.forEach(u => {
-                        const user = u.data();
-                        const item = document.createElement('div');
-                        item.className = 'user-item';
-                        item.innerHTML = `<img src="${user.photoURL || DEFAULT_IMG}" class="avatar-small" style="margin:0 0 0 10px;"> <span>${user.username} <span style="font-size:0.8rem; color:#888;">(${user.grade})</span></span>`;
-                        item.onclick = () => {
-                            selectedChatUser = user.uid;
-                            document.getElementById('chat-header').textContent = "محادثة مع: " + user.username;
-                            loadMessages(user.uid);
-                            if(window.innerWidth <= 768) {
-                                document.getElementById('chat-users-list').style.display = 'none';
-                                document.getElementById('main-chat-box').style.display = 'flex';
-                            }
-                        };
-                        list.appendChild(item);
+                        const sd = u.data();
+                        const di = document.createElement('div');
+                        di.className = 'user-item';
+                        di.innerHTML = `<span>${sd.username} (${sd.grade}ع)</span>`;
+                        di.onclick = () => { selectedChatUser = sd.uid; loadMessages(sd.uid); };
+                        l.appendChild(di);
                     });
                 });
             } else {
-                document.getElementById('chat-header').textContent = "تواصل مع مستر عمر";
                 loadMessages(currentUser.uid);
             }
         }
 
         function loadMessages(uid) {
-            if(chatUnsub) chatUnsub();
-            const q = query(collection(db, "chats", uid, "messages"), orderBy("timestamp", "asc"));
-            chatUnsub = onSnapshot(q, (snap) => {
-                const area = document.getElementById('messages-area');
-                area.innerHTML = "";
+            onSnapshot(query(collection(db, "chats", uid, "messages"), orderBy("timestamp", "asc")), (snap) => {
+                const a = document.getElementById('messages-area');
+                a.innerHTML = "";
                 snap.forEach(m => {
-                    const msg = m.data();
-                    const isMe = msg.senderId === currentUser.uid;
-                    const row = document.createElement('div');
-                    row.className = `message-row ${isMe ? 'row-sent' : 'row-received'}`;
-                    row.innerHTML = `<div class="message-content">${msg.text}</div>`;
-                    area.appendChild(row);
+                    const md = m.data();
+                    const isMe = md.senderId === currentUser.uid;
+                    a.innerHTML += `<div class="message-content ${isMe?'row-sent':'row-received'}">${md.text}</div>`;
                 });
-                area.scrollTop = area.scrollHeight;
+                a.scrollTop = a.scrollHeight;
             });
         }
 
         window.sendMessage = async () => {
-            const txt = document.getElementById('msg-input').value;
-            if(!txt) return;
-            const target = userData.role === 'student' ? currentUser.uid : selectedChatUser;
-            if(!target) return alert("الرجاء اختيار طالب لبدء المحادثة");
-            await addDoc(collection(db, "chats", target, "messages"), {
-                text: txt, senderId: currentUser.uid, timestamp: serverTimestamp()
-            });
+            const t = document.getElementById('msg-input').value;
+            const target = userData.role === 'admin' ? selectedChatUser : currentUser.uid;
+            if(!t || !target) return;
+            await addDoc(collection(db, "chats", target, "messages"), { text: t, senderId: currentUser.uid, timestamp: serverTimestamp() });
             document.getElementById('msg-input').value = "";
         };
 
-        window.updateProfile = async () => {
-            const photo = document.getElementById('new-photo').value.trim();
-            if(!photo) return;
-            await updateDoc(doc(db, "users", currentUser.uid), { photoURL: photo });
-            window.location.reload();
-        };
     </script>
 </body>
 </html>
