@@ -3,16 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>منصة مستر عمر الحوت</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <title>منصة مستر عمر الحوت | التعليمية</title>
+    <meta name="description" content="منصة مستر عمر الحوت التعليمية للمرحلة الإعدادية. شروحات، اختبارات تفاعلية، ملفات PDF، ومتابعة مستمرة للطلاب.">
+    <meta name="keywords" content="مستر عمر الحوت, علوم, منصة تعليمية, الصف الأول الإعدادي, الصف الثاني الإعدادي, الصف الثالث الإعدادي, امتحانات اونلاين">
+    <meta name="author" content="Mr. Omar El Hout">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="منصة مستر عمر الحوت">
+    <meta property="og:description" content="سجل الآن في أقوى منصة تعليمية للمرحلة الإعدادية.">
+    <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/3426/3426653.png">
+    <meta property="og:url" content="https://y73922866-design.github.io/4353/">
+    
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3426/3426653.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
             --primary: #00f3ff;
             --secondary: #bc13fe;
-            --bg: #050505;
-            --panel: #111;
+            --bg-dark: #050505;
+            --panel: rgba(20, 20, 25, 0.85);
             --text: #fff;
             --danger: #ff0055;
             --success: #00ff88;
@@ -20,25 +33,56 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; -webkit-tap-highlight-color: transparent; }
         
+        /* --- خلفية متحركة جذابة --- */
         body {
-            background-color: var(--bg);
-            background-image: 
-                linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
+            background-color: var(--bg-dark);
             color: var(--text);
             overflow-x: hidden;
             min-height: 100vh;
-            padding-bottom: 70px; /* مساحة للشريط السفلي في الموبايل */
+            padding-bottom: 70px;
+            position: relative;
+        }
+
+        /* تأثير الخلفية النيون المتحركة */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 15% 50%, rgba(188, 19, 254, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 243, 255, 0.08), transparent 25%);
+            z-index: -2;
+            animation: bgPulse 10s ease-in-out infinite alternate;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+
+        @keyframes bgPulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.1); opacity: 1; }
         }
 
         /* --- UI Elements --- */
-        .neon-text { text-shadow: 0 0 5px var(--primary); }
-        .neon-box { box-shadow: 0 0 5px var(--secondary), 0 0 10px var(--secondary) inset; border: 1px solid var(--secondary); }
+        .neon-text { text-shadow: 0 0 10px rgba(0, 243, 255, 0.5); }
+        .neon-box { 
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.3), inset 0 0 20px rgba(188, 19, 254, 0.1); 
+            border: 1px solid rgba(188, 19, 254, 0.5); 
+            backdrop-filter: blur(10px);
+        }
         
         .btn-neon {
-            background: transparent;
-            border: 2px solid var(--primary);
+            background: linear-gradient(45deg, transparent 50%, rgba(0, 243, 255, 0.1) 100%);
+            border: 1px solid var(--primary);
             color: var(--primary);
             padding: 10px 20px;
             font-weight: bold;
@@ -48,36 +92,49 @@
             text-align: center;
             display: inline-block;
             font-size: 1rem;
+            box-shadow: 0 0 5px rgba(0, 243, 255, 0.2);
+        }
+        .btn-neon:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 20px var(--primary);
         }
         .btn-neon:active { transform: scale(0.95); }
         
         /* --- Layout --- */
-        .container { max-width: 1000px; margin: 0 auto; padding: 15px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 15px; position: relative; z-index: 1; }
 
         /* --- Auth Screen --- */
         #auth-screen {
             display: flex; justify-content: center; align-items: center; min-height: 100vh;
-            background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+            background: #000;
             padding: 20px;
             position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;
         }
+        /* إضافة خلفية متحركة لشاشة الدخول */
+        #auth-screen::before {
+            content: ''; position: absolute; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #1a0b2e 0%, #000000 100%);
+            opacity: 0.8; z-index: -1;
+        }
+
         .auth-box {
-            background: rgba(17, 17, 17, 0.95); padding: 30px 20px; border-radius: 15px;
+            background: rgba(10, 10, 10, 0.8); padding: 40px 25px; border-radius: 20px;
             width: 100%; max-width: 400px; text-align: center;
-            border: 1px solid var(--primary);
+            border: 1px solid rgba(0, 243, 255, 0.3);
         }
         input, select, textarea {
             width: 100%; padding: 14px; margin: 8px 0;
-            background: #222; border: 1px solid #444; color: #fff;
-            border-radius: 8px; outline: none; font-size: 16px; /* يمنع الزووم في الايفون */
+            background: rgba(255, 255, 255, 0.05); border: 1px solid #333; color: #fff;
+            border-radius: 8px; outline: none; font-size: 16px; transition: 0.3s;
         }
-        input:focus { border-color: var(--primary); }
+        input:focus { border-color: var(--primary); background: rgba(0, 243, 255, 0.05); }
 
         /* --- Header & Nav --- */
         header {
-            background: rgba(17, 17, 17, 0.95); padding: 10px 0;
-            border-bottom: 2px solid var(--primary); position: sticky; top: 0; z-index: 100;
-            backdrop-filter: blur(10px);
+            background: rgba(5, 5, 5, 0.8); padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2); position: sticky; top: 0; z-index: 100;
+            backdrop-filter: blur(20px);
         }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
         
@@ -85,96 +142,108 @@
         nav { display: flex; gap: 5px; }
         nav button {
             background: none; border: none; color: #aaa; font-size: 1rem;
-            padding: 5px 10px; cursor: pointer; transition: 0.3s;
+            padding: 5px 15px; cursor: pointer; transition: 0.3s;
+            border-radius: 20px;
         }
-        nav button.active { color: var(--primary); border-bottom: 2px solid var(--primary); }
-        nav button i { display: none; } /* إخفاء الايقونات في الديسك توب */
+        nav button:hover { color: #fff; background: rgba(255,255,255,0.05); }
+        nav button.active { color: #000; background: var(--primary); font-weight: bold; box-shadow: 0 0 10px var(--primary); }
+        nav button i { display: none; } 
 
-        /* --- Mobile Navigation (The App Feel) --- */
+        /* --- Mobile Navigation --- */
         @media (max-width: 768px) {
             header { padding: 10px 15px; }
-            /* إخفاء القائمة العلوية */
             header nav { display: none; }
             
-            /* إنشاء شريط سفلي ثابت */
             .mobile-nav {
                 display: flex !important;
                 position: fixed; bottom: 0; left: 0; width: 100%;
-                background: #111; border-top: 1px solid #333;
+                background: rgba(10, 10, 10, 0.95); border-top: 1px solid #333;
                 justify-content: space-around; padding: 10px 0;
-                z-index: 1000; box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+                z-index: 1000; backdrop-filter: blur(10px);
             }
             .mobile-nav button {
                 background: none; border: none; color: #666;
                 display: flex; flex-direction: column; align-items: center;
-                font-size: 0.8rem; gap: 5px; width: 20%;
+                font-size: 0.75rem; gap: 5px; width: 20%;
             }
-            .mobile-nav button i { display: block; font-size: 1.2rem; margin-bottom: 3px; }
+            .mobile-nav button i { display: block; font-size: 1.3rem; margin-bottom: 3px; transition: 0.3s; }
             .mobile-nav button.active { color: var(--primary); }
+            .mobile-nav button.active i { transform: translateY(-3px); text-shadow: 0 0 10px var(--primary); }
             
-            /* تعديل المحادثة للموبايل */
             .chat-container { flex-direction: column; height: auto; }
             .users-list { width: 100%; max-height: 150px; margin-bottom: 10px; }
             .chat-box { width: 100%; height: 60vh; }
         }
         
-        .mobile-nav { display: none; } /* مخفي في الشاشات الكبيرة */
+        .mobile-nav { display: none; }
 
         /* --- Cards --- */
         .card {
             background: var(--panel); padding: 20px; margin-bottom: 20px;
-            border-radius: 12px; border-right: 4px solid var(--secondary);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border-radius: 16px; border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: 0.3s;
         }
+        .card:hover { transform: translateY(-2px); border-color: rgba(0, 243, 255, 0.3); }
+        
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .author-box { display: flex; align-items: center; gap: 10px; }
+        .author-name { font-weight: bold; color: var(--primary); }
+        .grade-badge { background: rgba(188, 19, 254, 0.2); color: var(--secondary); padding: 2px 10px; border-radius: 10px; font-size: 0.8rem; border: 1px solid rgba(188, 19, 254, 0.4); }
+
         .admin-panel {
-            background: rgba(26, 26, 26, 0.9); padding: 15px; border: 1px dashed var(--danger);
+            background: rgba(255, 80, 80, 0.05); padding: 15px; border: 1px dashed var(--danger);
             margin-bottom: 20px; border-radius: 10px;
         }
 
         /* --- Quizzes --- */
         .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        @media (max-width: 600px) { .quiz-options { grid-template-columns: 1fr; } } /* خيارات تحت بعضها في الموبايل */
+        @media (max-width: 600px) { .quiz-options { grid-template-columns: 1fr; } }
         
         .quiz-option {
-            background: #222; padding: 15px; border-radius: 8px; border: 1px solid #444;
-            cursor: pointer; text-align: center;
+            background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; border: 1px solid #333;
+            cursor: pointer; text-align: center; transition: 0.2s;
         }
-        .quiz-option.correct { background: rgba(0, 255, 136, 0.15); border-color: var(--success); color: var(--success); }
-        .quiz-option.wrong { background: rgba(255, 0, 85, 0.15); border-color: var(--danger); color: var(--danger); }
+        .quiz-option:hover { background: rgba(255,255,255,0.1); }
+        .quiz-option.correct { background: rgba(0, 255, 136, 0.2); border-color: var(--success); color: var(--success); }
+        .quiz-option.wrong { background: rgba(255, 0, 85, 0.2); border-color: var(--danger); color: var(--danger); }
 
         /* --- Chat --- */
-        .chat-container { display: flex; height: 70vh; gap: 10px; }
+        .chat-container { display: flex; height: 70vh; gap: 15px; }
         .users-list { 
-            width: 30%; background: #111; border: 1px solid #333; 
-            overflow-y: auto; border-radius: 10px;
+            width: 30%; background: rgba(0,0,0,0.3); border: 1px solid #333; 
+            overflow-y: auto; border-radius: 12px;
         }
-        .user-item { padding: 12px; border-bottom: 1px solid #222; cursor: pointer; display: flex; align-items: center; }
+        .user-item { padding: 12px; border-bottom: 1px solid #222; cursor: pointer; display: flex; align-items: center; transition: 0.2s; }
+        .user-item:hover { background: rgba(255,255,255,0.05); }
+        
         .chat-box { 
             width: 70%; display: flex; flex-direction: column; 
-            background: #111; border: 1px solid #333; border-radius: 10px;
+            background: rgba(0,0,0,0.3); border: 1px solid #333; border-radius: 12px;
+            overflow: hidden;
         }
-        .messages-area { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+        .messages-area { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
         .message-row { display: flex; align-items: flex-end; margin-bottom: 5px; }
-        .message-content { padding: 10px 15px; border-radius: 15px; max-width: 85%; word-wrap: break-word; font-size: 0.95rem; }
+        .message-content { padding: 10px 15px; border-radius: 15px; max-width: 85%; word-wrap: break-word; font-size: 0.95rem; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
         .row-sent { flex-direction: row-reverse; }
-        .row-sent .message-content { background: var(--secondary); color: #fff; border-bottom-left-radius: 15px; border-bottom-right-radius: 0; }
+        .row-sent .message-content { background: linear-gradient(135deg, var(--secondary), #8a0bbd); color: #fff; border-bottom-left-radius: 15px; border-bottom-right-radius: 0; }
         .row-received { flex-direction: row; }
         .row-received .message-content { background: #333; border-bottom-left-radius: 0; border-bottom-right-radius: 15px; }
-        .chat-input { padding: 10px; background: #1a1a1a; display: flex; gap: 8px; align-items: center; }
+        .chat-input { padding: 15px; background: rgba(0,0,0,0.5); display: flex; gap: 10px; align-items: center; border-top: 1px solid #333; }
 
         /* --- Avatars --- */
-        .avatar-small { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); margin-left: 10px; }
-        .avatar-large { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--secondary); display: block; margin: 0 auto 15px auto; }
+        .avatar-small { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); box-shadow: 0 0 5px var(--primary); }
+        .avatar-large { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--secondary); display: block; margin: 0 auto 15px auto; box-shadow: 0 0 15px var(--secondary); }
 
         /* --- Utilities --- */
         .section { display: none; animation: fadeIn 0.4s; }
         .section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
         .toast {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            background: #333; color: #fff; padding: 10px 20px; border-radius: 30px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5); display: none; z-index: 3000; font-size: 0.9rem;
+            background: #222; color: var(--success); padding: 10px 25px; border-radius: 30px; border: 1px solid var(--success);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5); display: none; z-index: 3000; font-weight: bold;
         }
     </style>
 </head>
@@ -184,18 +253,18 @@
 
     <div id="auth-screen">
         <div class="auth-box neon-box">
-            <h2 class="neon-text" style="margin-bottom: 20px;">مستر عمر الحوت</h2>
+            <h1 class="neon-text" style="margin-bottom: 20px; font-size: 1.8rem;">مستر عمر الحوت</h1>
             
             <div id="login-form">
                 <input type="text" id="login-username" placeholder="اسم المستخدم (مثال: omar)">
                 <input type="password" id="login-password" placeholder="كلمة المرور">
-                <button class="btn-neon" style="width:100%; margin-top:10px;" onclick="login()">دخول</button>
-                <p style="margin-top: 20px; font-size:0.9rem;">ليس لديك حساب؟ <a href="#" style="color:var(--primary)" onclick="toggleAuth('signup')">إنشاء حساب</a></p>
+                <button class="btn-neon" style="width:100%; margin-top:15px;" onclick="login()">دخول</button>
+                <p style="margin-top: 20px; font-size:0.9rem;">ليس لديك حساب؟ <a href="#" style="color:var(--primary); text-decoration:none;" onclick="toggleAuth('signup')">إنشاء حساب</a></p>
             </div>
 
             <div id="signup-form" style="display: none;">
-                <div style="background: rgba(255,0,0,0.1); padding:8px; border-radius:5px; font-size:0.8rem; color:#ffaaaa; margin-bottom:10px;">
-                    الاسم: إنجليزي فقط (بدون مسافات).
+                <div style="background: rgba(255,0,0,0.1); padding:10px; border-radius:5px; font-size:0.8rem; color:#ffaaaa; margin-bottom:10px; border: 1px solid rgba(255,0,0,0.3);">
+                    <i class="fas fa-info-circle"></i> الاسم: إنجليزي فقط (بدون مسافات).
                 </div>
                 <input type="text" id="signup-username" placeholder="اسم المستخدم (English)">
                 <input type="password" id="signup-password" placeholder="كلمة المرور">
@@ -206,8 +275,8 @@
                     <option value="3">الثالث الإعدادي</option>
                 </select>
                 <input type="text" id="signup-photo" placeholder="رابط صورة (اختياري)">
-                <button class="btn-neon" style="width:100%; margin-top:10px;" onclick="signup()">تسجيل جديد</button>
-                <p style="margin-top: 20px; font-size:0.9rem;">لديك حساب؟ <a href="#" style="color:var(--primary)" onclick="toggleAuth('login')">دخول</a></p>
+                <button class="btn-neon" style="width:100%; margin-top:15px;" onclick="signup()">تسجيل جديد</button>
+                <p style="margin-top: 20px; font-size:0.9rem;">لديك حساب؟ <a href="#" style="color:var(--primary); text-decoration:none;" onclick="toggleAuth('login')">دخول</a></p>
             </div>
         </div>
     </div>
@@ -215,10 +284,10 @@
     <div id="main-app" style="display: none;">
         <header>
             <div class="container nav-content">
-                <div style="display:flex; align-items:center;">
-                    <img id="header-avatar" src="" class="avatar-small">
+                <div style="display:flex; align-items:center; gap: 10px;">
+                    <img id="header-avatar" src="" class="avatar-small" style="border:none;">
                     <div>
-                        <div class="neon-text" style="font-weight: bold; font-size:1.1rem;">MR. OMAR</div>
+                        <div class="neon-text" style="font-weight: bold; font-size:1.1rem; color:#fff;">MR. OMAR</div>
                     </div>
                 </div>
                 
@@ -228,7 +297,7 @@
                     <button onclick="showSection('files')" id="d-nav-files">الملفات</button>
                     <button onclick="showSection('chat')" id="d-nav-chat">المحادثة</button>
                     <button onclick="showSection('profile')" id="d-nav-profile">حسابي</button>
-                    <button onclick="logout()" style="color:var(--danger); margin-right:10px;"><i class="fas fa-sign-out-alt"></i></button>
+                    <button onclick="logout()" style="color:var(--danger); margin-right:5px; font-size: 1.2rem;"><i class="fas fa-sign-out-alt"></i></button>
                 </nav>
             </div>
         </header>
@@ -236,9 +305,9 @@
         <div class="container" style="padding-top: 20px;">
             <div id="section-posts" class="section active">
                 <div id="admin-post-controls" class="admin-panel" style="display: none;">
-                    <h3><i class="fas fa-edit"></i> نشر بوست</h3>
-                    <textarea id="post-content" placeholder="اكتب شيئاً..." style="height:80px;"></textarea>
-                    <div style="display:flex; gap:10px; margin-top:5px;">
+                    <h3 style="color:var(--primary); margin-bottom:10px;"><i class="fas fa-edit"></i> نشر بوست</h3>
+                    <textarea id="post-content" placeholder="اكتب شيئاً للطلاب..." style="height:100px; resize:none;"></textarea>
+                    <div style="display:flex; gap:10px; margin-top:10px;">
                         <select id="post-grade" style="margin:0;">
                             <option value="all">الكل</option>
                             <option value="1">1ع</option>
@@ -253,20 +322,20 @@
 
             <div id="section-quizzes" class="section">
                 <div id="admin-quiz-controls" class="admin-panel" style="display: none;">
-                    <h3><i class="fas fa-plus-circle"></i> إضافة سؤال</h3>
-                    <input type="text" id="quiz-question" placeholder="السؤال">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
-                        <input type="text" id="quiz-op1" placeholder="أ">
-                        <input type="text" id="quiz-op2" placeholder="ب">
-                        <input type="text" id="quiz-op3" placeholder="ج">
-                        <input type="text" id="quiz-op4" placeholder="د">
+                    <h3 style="color:var(--primary); margin-bottom:10px;"><i class="fas fa-plus-circle"></i> إضافة سؤال</h3>
+                    <input type="text" id="quiz-question" placeholder="نص السؤال">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <input type="text" id="quiz-op1" placeholder="الاختيار أ">
+                        <input type="text" id="quiz-op2" placeholder="الاختيار ب">
+                        <input type="text" id="quiz-op3" placeholder="الاختيار ج">
+                        <input type="text" id="quiz-op4" placeholder="الاختيار د">
                     </div>
-                    <div style="display:flex; gap:5px; margin-top:5px;">
+                    <div style="display:flex; gap:10px; margin-top:10px;">
                         <select id="quiz-correct" style="margin:0;">
-                            <option value="0">أ</option>
-                            <option value="1">ب</option>
-                            <option value="2">ج</option>
-                            <option value="3">د</option>
+                            <option value="0">الإجابة الصحيحة: أ</option>
+                            <option value="1">الإجابة الصحيحة: ب</option>
+                            <option value="2">الإجابة الصحيحة: ج</option>
+                            <option value="3">الإجابة الصحيحة: د</option>
                         </select>
                         <select id="quiz-grade-select" style="margin:0;">
                             <option value="1">1ع</option>
@@ -274,16 +343,16 @@
                             <option value="3">3ع</option>
                         </select>
                     </div>
-                    <button type="button" class="btn-neon" style="width:100%; margin-top:10px;" onclick="addQuiz()">حفظ السؤال</button>
+                    <button type="button" class="btn-neon" style="width:100%; margin-top:15px;" onclick="addQuiz()">حفظ السؤال</button>
                 </div>
                 <div id="quizzes-feed"></div>
             </div>
 
             <div id="section-files" class="section">
                 <div id="admin-file-controls" class="admin-panel" style="display: none;">
-                    <h3><i class="fas fa-link"></i> رابط جديد</h3>
-                    <input type="text" id="file-title" placeholder="العنوان">
-                    <input type="text" id="file-url" placeholder="الرابط">
+                    <h3 style="color:var(--primary); margin-bottom:10px;"><i class="fas fa-link"></i> رابط جديد</h3>
+                    <input type="text" id="file-title" placeholder="عنوان الملف (مثال: ملزمة المراجعة)">
+                    <input type="text" id="file-url" placeholder="الرابط (Drive, YouTube, etc)">
                     <select id="file-grade-select">
                         <option value="1">1ع</option>
                         <option value="2">2ع</option>
@@ -298,28 +367,30 @@
                 <div class="chat-container">
                     <div id="chat-users-list" class="users-list" style="display: none;"></div>
                     <div class="chat-box" id="main-chat-box">
-                        <div id="chat-header" style="padding:10px; border-bottom:1px solid #333; font-weight:bold; font-size:0.9rem; color:#aaa;">اختر محادثة</div>
+                        <div id="chat-header" style="padding:15px; border-bottom:1px solid #333; font-weight:bold; font-size:0.95rem; color:var(--primary); background:rgba(0,0,0,0.2);">اختر محادثة</div>
                         <div id="messages-area" class="messages-area"></div>
                         <div class="chat-input">
-                            <input type="text" id="msg-input" placeholder="رسالة..." style="margin:0;">
-                            <button class="btn-neon" onclick="sendMessage()" style="padding: 10px 15px;"><i class="fas fa-paper-plane"></i></button>
+                            <input type="text" id="msg-input" placeholder="اكتب رسالتك..." style="margin:0;">
+                            <button class="btn-neon" onclick="sendMessage()" style="padding: 10px 20px;"><i class="fas fa-paper-plane"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div id="section-profile" class="section">
-                <div class="card" style="text-align: center;">
+                <div class="card" style="text-align: center; max-width: 500px; margin: 0 auto;">
                     <img id="profile-img-preview" src="" class="avatar-large">
                     <h2 id="p-name" style="color:var(--primary); margin-bottom:5px;"></h2>
-                    <p id="p-grade" style="color:#888; margin-bottom:20px;"></p>
+                    <p id="p-grade" style="color:#aaa; margin-bottom:25px;"></p>
                     
-                    <div style="border-top:1px solid #333; padding-top:20px; text-align:right;">
-                        <label style="font-size:0.9rem; color:#aaa;">تغيير الصورة:</label>
-                        <input type="text" id="new-photo" placeholder="رابط الصورة الجديد">
-                        <button class="btn-neon" style="width:100%" onclick="updateProfile()">حفظ التعديلات</button>
+                    <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; text-align:right;">
+                        <label style="font-size:0.9rem; color:#ccc; margin-bottom:5px; display:block;">تغيير صورة البروفايل:</label>
+                        <div style="display:flex; gap:5px;">
+                            <input type="text" id="new-photo" placeholder="رابط الصورة الجديد" style="margin:0;">
+                            <button class="btn-neon" onclick="updateProfile()" style="white-space:nowrap;">حفظ</button>
+                        </div>
                     </div>
-                    <button onclick="logout()" style="width:100%; margin-top:20px; background:#220000; color:#ff5555; padding:10px; border:1px solid #500; border-radius:5px;">تسجيل خروج</button>
+                    <button onclick="logout()" style="width:100%; margin-top:30px; background:rgba(255, 0, 85, 0.1); color:var(--danger); padding:12px; border:1px solid var(--danger); border-radius:8px; font-weight:bold; cursor:pointer;">تسجيل خروج</button>
                 </div>
             </div>
         </div>
@@ -382,21 +453,18 @@
         };
 
         window.showSection = (sec) => {
-            // إخفاء/إظهار الأقسام
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.getElementById('section-' + sec).classList.add('active');
             
-            // تحديث أزرار التنقل (للموبايل والكمبيوتر)
             document.querySelectorAll('nav button, .mobile-nav button').forEach(b => b.classList.remove('active'));
             
-            // محاولة تفعيل زر الديسك توب والموبايل معاً
             const dBtn = document.getElementById('d-nav-' + sec);
             const mBtn = document.getElementById('m-nav-' + sec);
             if(dBtn) dBtn.classList.add('active');
             if(mBtn) mBtn.classList.add('active');
 
             if(sec === 'chat') loadChat();
-            window.scrollTo(0, 0); // الصعود للأعلى عند التنقل
+            window.scrollTo(0, 0); 
         };
 
         // Auth
@@ -407,10 +475,10 @@
             let photo = document.getElementById('signup-photo').value.trim();
             if(!photo) photo = DEFAULT_IMG;
 
-            if(!user || !pass || !grade) return alert("أكمل البيانات");
+            if(!user || !pass || !grade) return alert("الرجاء إكمال جميع البيانات المطلوبة");
 
             const validName = /^[a-zA-Z0-9]+$/;
-            if(!validName.test(user)) return alert("الاسم يجب أن يكون إنجليزي فقط وبدون مسافات");
+            if(!validName.test(user)) return alert("الاسم يجب أن يكون باللغة الإنجليزية فقط وبدون مسافات");
 
             const email = user + "@mr-omar.com";
 
@@ -422,17 +490,17 @@
                     photoURL: photo, uid: cred.user.uid
                 });
                 await updateProfile(cred.user, { displayName: user, photoURL: photo });
-                window.showToast("تم التسجيل");
+                window.showToast("تم إنشاء الحساب بنجاح");
             } catch(e) { 
-                if(e.code === 'auth/email-already-in-use') alert("الاسم مأخوذ مسبقاً، جرب إضافة رقم (مثلاً " + user + "1)");
-                else alert("خطأ: " + e.message); 
+                if(e.code === 'auth/email-already-in-use') alert("هذا الاسم مستخدم من قبل، حاول إضافة رقم للاسم");
+                else alert("حدث خطأ: " + e.message); 
             }
         };
 
         window.login = async () => {
             const user = document.getElementById('login-username').value.trim();
             const pass = document.getElementById('login-password').value;
-            if(!user || !pass) return alert("أدخل البيانات");
+            if(!user || !pass) return alert("أدخل اسم المستخدم وكلمة المرور");
             try {
                 await signInWithEmailAndPassword(auth, user + "@mr-omar.com", pass);
             } catch(e) { alert("بيانات الدخول غير صحيحة"); }
@@ -463,7 +531,7 @@
             document.getElementById('header-avatar').src = safeImg;
             document.getElementById('profile-img-preview').src = safeImg;
             document.getElementById('p-name').textContent = userData.username;
-            document.getElementById('p-grade').textContent = userData.role === 'admin' ? 'الأدمن' : 'الصف ' + userData.grade;
+            document.getElementById('p-grade').textContent = userData.role === 'admin' ? 'مدير المنصة' : 'الصف ' + userData.grade;
 
             const isAdmin = userData.role === 'admin';
             document.getElementById('admin-post-controls').style.display = isAdmin ? 'block' : 'none';
@@ -471,7 +539,6 @@
             document.getElementById('admin-quiz-controls').style.display = isAdmin ? 'block' : 'none';
             document.getElementById('chat-users-list').style.display = isAdmin ? 'block' : 'none';
             
-            // في الموبايل الشات ياخد كامل الشاشة
             if(!isAdmin) document.querySelector('.chat-box').style.width = '100%';
 
             loadPosts();
@@ -490,7 +557,7 @@
                     authorPhoto: userData.photoURL || DEFAULT_IMG, timestamp: serverTimestamp()
                 });
                 document.getElementById('post-content').value = "";
-                window.showToast("تم النشر");
+                window.showToast("تم نشر البوست");
             } catch(e) { alert(e.message); }
         };
 
@@ -510,7 +577,7 @@
                                 </div>
                                 <span class="grade-badge">${data.grade === 'all' ? 'عام' : data.grade}</span>
                             </div>
-                            <div style="white-space: pre-wrap; font-size:1rem; padding: 5px;">${data.content}</div>
+                            <div style="white-space: pre-wrap; font-size:1rem; padding: 5px; line-height: 1.6;">${data.content}</div>
                         </div>`;
                     }
                 });
@@ -530,14 +597,17 @@
                 const correct = document.getElementById('quiz-correct').value;
                 const grade = document.getElementById('quiz-grade-select').value;
 
-                if(!q || ops.includes("")) return alert("أكمل السؤال");
+                if(!q || ops.includes("")) return alert("يرجى إكمال جميع حقول السؤال");
 
                 await addDoc(collection(db, "quizzes"), {
                     question: q, options: ops, correct: parseInt(correct), grade: grade, timestamp: serverTimestamp()
                 });
-                window.showToast("تم الحفظ");
+                window.showToast("تم حفظ السؤال");
                 document.getElementById('quiz-question').value = "";
                 document.getElementById('quiz-op1').value = "";
+                document.getElementById('quiz-op2').value = "";
+                document.getElementById('quiz-op3').value = "";
+                document.getElementById('quiz-op4').value = "";
             } catch(e) { alert(e.message); }
         };
 
@@ -554,10 +624,10 @@
                         });
                         div.innerHTML += `
                         <div class="card">
-                            <div class="card-header"><span>❓ سؤال</span> <span class="grade-badge">${data.grade}</span></div>
-                            <h3 style="margin-bottom:15px">${data.question}</h3>
+                            <div class="card-header"><span>❓ سؤال تفاعلي</span> <span class="grade-badge">${data.grade}</span></div>
+                            <h3 style="margin-bottom:20px; color:#fff;">${data.question}</h3>
                             <div class="quiz-options">${opsHtml}</div>
-                            <div class="quiz-feedback" style="margin-top:10px; font-weight:bold; display:none;"></div>
+                            <div class="quiz-feedback" style="margin-top:15px; font-weight:bold; display:none; text-align:center;"></div>
                         </div>`;
                     }
                 });
@@ -573,11 +643,11 @@
             
             if(selected === correct) {
                 el.classList.add('correct');
-                feedback.innerHTML = '<span style="color:var(--success)">إجابة صحيحة! ممتاز 👏</span>';
+                feedback.innerHTML = '<span style="color:var(--success); font-size:1.1rem;">إجابة صحيحة! أحسنت 🌟</span>';
             } else {
                 el.classList.add('wrong');
                 parent.children[correct].classList.add('correct');
-                feedback.innerHTML = '<span style="color:var(--danger)">إجابة خاطئة 😢</span>';
+                feedback.innerHTML = '<span style="color:var(--danger)">إجابة خاطئة، حظاً أوفر المرة القادمة</span>';
             }
         };
 
@@ -588,7 +658,9 @@
             const grade = document.getElementById('file-grade-select').value;
             if(!title || !url) return;
             await addDoc(collection(db, "files"), { title, url, grade, timestamp: serverTimestamp() });
-            window.showToast("تم الإضافة");
+            window.showToast("تمت الإضافة");
+            document.getElementById('file-title').value = "";
+            document.getElementById('file-url').value = "";
         };
 
         function loadFiles() {
@@ -600,11 +672,11 @@
                     if(userData.role === 'admin' || data.grade === userData.grade) {
                         div.innerHTML += `
                         <div class="card" style="display:flex; justify-content:space-between; align-items:center;">
-                            <div>
-                                <div style="font-weight:bold; color:var(--primary);">${data.title}</div>
-                                <span class="grade-badge">${data.grade}</span>
+                            <div style="display:flex; flex-direction:column; gap:5px;">
+                                <div style="font-weight:bold; font-size:1.1rem; color:var(--primary);"><i class="fas fa-file-alt" style="margin-left:5px;"></i> ${data.title}</div>
+                                <span class="grade-badge" style="width:fit-content;">${data.grade}</span>
                             </div>
-                            <a href="${data.url}" target="_blank" class="btn-neon" style="padding:5px 15px; font-size:0.9rem;">فتح</a>
+                            <a href="${data.url}" target="_blank" class="btn-neon" style="padding:8px 20px; font-size:0.9rem; text-decoration:none;">فتح الرابط</a>
                         </div>`;
                     }
                 });
@@ -622,12 +694,15 @@
                         const user = u.data();
                         const item = document.createElement('div');
                         item.className = 'user-item';
-                        item.innerHTML = `<img src="${user.photoURL || DEFAULT_IMG}" class="avatar-small" style="margin:0 0 0 10px;"> ${user.username}`;
+                        item.innerHTML = `<img src="${user.photoURL || DEFAULT_IMG}" class="avatar-small" style="margin:0 0 0 10px;"> <span>${user.username} <span style="font-size:0.8rem; color:#888;">(${user.grade})</span></span>`;
                         item.onclick = () => {
                             selectedChatUser = user.uid;
                             document.getElementById('chat-header').textContent = "محادثة مع: " + user.username;
                             loadMessages(user.uid);
-                            // في الموبايل، لما نختار يوزر ممكن نخفي الليست عشان نشوف الشات (تحسين إضافي)
+                            if(window.innerWidth <= 768) {
+                                document.getElementById('chat-users-list').style.display = 'none';
+                                document.getElementById('main-chat-box').style.display = 'flex';
+                            }
                         };
                         list.appendChild(item);
                     });
@@ -660,7 +735,7 @@
             const txt = document.getElementById('msg-input').value;
             if(!txt) return;
             const target = userData.role === 'student' ? currentUser.uid : selectedChatUser;
-            if(!target) return alert("اختر طالباً");
+            if(!target) return alert("الرجاء اختيار طالب لبدء المحادثة");
             await addDoc(collection(db, "chats", target, "messages"), {
                 text: txt, senderId: currentUser.uid, timestamp: serverTimestamp()
             });
