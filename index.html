@@ -7,13 +7,12 @@
     <title>منصة مستر عمرو الحوت | التعليمية</title>
     <meta name="description" content="منصة مستر عمرو الحوت التعليمية للمرحلة الإعدادية. شروحات، اختبارات تفاعلية، ملفات PDF، ومتابعة مستمرة للطلاب.">
     <meta name="keywords" content="مستر عمرو الحوت, رياضه, منصة تعليمية, الصف الأول الإعدادي, الصف الثاني الإعدادي, الصف الثالث الإعدادي, امتحانات اونلاين">
-    <meta name="author" content="Mr. Omar El Hout">
+    <meta name="author" content="Mr. Amrou El Hout">
     <meta name="robots" content="index, follow">
     
     <meta property="og:title" content="منصة مستر عمرو الحوت">
     <meta property="og:description" content="سجل الآن في أقوى منصة تعليمية للمرحلة الإعدادية.">
     <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/3426/3426653.png">
-    <meta property="og:url" content="https://y73922866-design.github.io/4353/">
     
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3426/3426653.png">
 
@@ -33,7 +32,6 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; -webkit-tap-highlight-color: transparent; }
         
-        /* --- خلفية متحركة جذابة --- */
         body {
             background-color: var(--bg-dark);
             color: var(--text);
@@ -43,7 +41,6 @@
             position: relative;
         }
 
-        /* تأثير الخلفية النيون المتحركة */
         body::before {
             content: '';
             position: fixed;
@@ -72,7 +69,6 @@
             100% { transform: scale(1.1); opacity: 1; }
         }
 
-        /* --- UI Elements --- */
         .neon-text { text-shadow: 0 0 10px rgba(0, 243, 255, 0.5); }
         .neon-box { 
             box-shadow: 0 0 15px rgba(188, 19, 254, 0.3), inset 0 0 20px rgba(188, 19, 254, 0.1); 
@@ -101,17 +97,14 @@
         }
         .btn-neon:active { transform: scale(0.95); }
         
-        /* --- Layout --- */
         .container { max-width: 1000px; margin: 0 auto; padding: 15px; position: relative; z-index: 1; }
 
-        /* --- Auth Screen --- */
         #auth-screen {
             display: flex; justify-content: center; align-items: center; min-height: 100vh;
             background: #000;
             padding: 20px;
             position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;
         }
-        /* إضافة خلفية متحركة لشاشة الدخول */
         #auth-screen::before {
             content: ''; position: absolute; width: 100%; height: 100%;
             background: radial-gradient(circle at center, #1a0b2e 0%, #000000 100%);
@@ -130,7 +123,6 @@
         }
         input:focus { border-color: var(--primary); background: rgba(0, 243, 255, 0.05); }
 
-        /* --- Header & Nav --- */
         header {
             background: rgba(5, 5, 5, 0.8); padding: 10px 0;
             border-bottom: 1px solid rgba(0, 243, 255, 0.2); position: sticky; top: 0; z-index: 100;
@@ -138,7 +130,6 @@
         }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
         
-        /* Navigation Bar (Desktop Default) */
         nav { display: flex; gap: 5px; }
         nav button {
             background: none; border: none; color: #aaa; font-size: 1rem;
@@ -149,7 +140,6 @@
         nav button.active { color: #000; background: var(--primary); font-weight: bold; box-shadow: 0 0 10px var(--primary); }
         nav button i { display: none; } 
 
-        /* --- Mobile Navigation --- */
         @media (max-width: 768px) {
             header { padding: 10px 15px; }
             header nav { display: none; }
@@ -177,7 +167,6 @@
         
         .mobile-nav { display: none; }
 
-        /* --- Cards --- */
         .card {
             background: var(--panel); padding: 20px; margin-bottom: 20px;
             border-radius: 16px; border: 1px solid rgba(255,255,255,0.05);
@@ -196,7 +185,6 @@
             margin-bottom: 20px; border-radius: 10px;
         }
 
-        /* --- Quizzes --- */
         .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         @media (max-width: 600px) { .quiz-options { grid-template-columns: 1fr; } }
         
@@ -208,7 +196,6 @@
         .quiz-option.correct { background: rgba(0, 255, 136, 0.2); border-color: var(--success); color: var(--success); }
         .quiz-option.wrong { background: rgba(255, 0, 85, 0.2); border-color: var(--danger); color: var(--danger); }
 
-        /* --- Chat --- */
         .chat-container { display: flex; height: 70vh; gap: 15px; }
         .users-list { 
             width: 30%; background: rgba(0,0,0,0.3); border: 1px solid #333; 
@@ -231,11 +218,9 @@
         .row-received .message-content { background: #333; border-bottom-left-radius: 0; border-bottom-right-radius: 15px; }
         .chat-input { padding: 15px; background: rgba(0,0,0,0.5); display: flex; gap: 10px; align-items: center; border-top: 1px solid #333; }
 
-        /* --- Avatars --- */
         .avatar-small { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); box-shadow: 0 0 5px var(--primary); }
         .avatar-large { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--secondary); display: block; margin: 0 auto 15px auto; box-shadow: 0 0 15px var(--secondary); }
 
-        /* --- Utilities --- */
         .section { display: none; animation: fadeIn 0.4s; }
         .section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -256,7 +241,7 @@
             <h1 class="neon-text" style="margin-bottom: 20px; font-size: 1.8rem;">مستر عمرو الحوت</h1>
             
             <div id="login-form">
-                <input type="text" id="login-username" placeholder="اسم المستخدم (مثال: omar)">
+                <input type="text" id="login-username" placeholder="اسم المستخدم (مثال: Amrou)">
                 <input type="password" id="login-password" placeholder="كلمة المرور">
                 <button class="btn-neon" style="width:100%; margin-top:15px;" onclick="login()">دخول</button>
                 <p style="margin-top: 20px; font-size:0.9rem;">ليس لديك حساب؟ <a href="#" style="color:var(--primary); text-decoration:none;" onclick="toggleAuth('signup')">إنشاء حساب</a></p>
@@ -480,7 +465,8 @@
             const validName = /^[a-zA-Z0-9]+$/;
             if(!validName.test(user)) return alert("الاسم يجب أن يكون باللغة الإنجليزية فقط وبدون مسافات");
 
-            const email = user + "@mr-omar.com";
+            // تم توحيد الدومين هنا
+            const email = user + "@mr-amrou.com";
 
             try {
                 const cred = await createUserWithEmailAndPassword(auth, email, pass);
@@ -502,7 +488,8 @@
             const pass = document.getElementById('login-password').value;
             if(!user || !pass) return alert("أدخل اسم المستخدم وكلمة المرور");
             try {
-                await signInWithEmailAndPassword(auth, user + "@mr-Amrou.com", pass);
+                // تم توحيد الدومين هنا ليتطابق مع التسجيل
+                await signInWithEmailAndPassword(auth, user + "@mr-amrou.com", pass);
             } catch(e) { alert("بيانات الدخول غير صحيحة"); }
         };
 
